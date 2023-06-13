@@ -7,7 +7,7 @@ const app = express();
 const expressServer= createServer(app)
 const socketServer = new Server(expressServer, {
   cors: {
-    origin: "http://localhost:3000"
+    origin: ["http://localhost:3000", "http://localhost:4000"]
   }
 });
 
@@ -33,14 +33,19 @@ socketServer.on('connection', (socket) => {
     socket.emit("error", "Too many players on currently.");
     socket.disconnect(true);
 
-  } else {
-    players++;
-    socket.join('game');
-    let gameOver = false;
-    while (players === 2 && !gameOver) {
+  // } else {
+  //   players++;
+  //   socket.join('game');
+  //   let gameOver = false;
+  //   while (players === 2 && !gameOver) {
       
-    }
+  //   }
   }
+
+  socket.on('button-push', (msg) => {
+    console.log('player pushed button');
+    console.log(msg);
+  })
 
   socket.on('disconnect', (socket) => {
     console.log('A player disconnected')
