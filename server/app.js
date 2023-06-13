@@ -85,9 +85,9 @@ socketServer.on('connection', (socket) => {
 })
 
 
-app.get('/', (req, res) => {
-  //TODO
-})
+// app.get('/', (req, res) => {
+//   //TODO
+// })
 
 
 

@@ -24,20 +24,20 @@ function App() {
     }
 
     function onSequenceFinish(message) {
-      console.log(message);
+      // console.log(message);
       let messageArray = message.split(" ")
       setButtonHistory(JSON.parse(messageArray[1]));
       setMyTurn(Number(messageArray[0]) !== fastIdHolder);
     }
 
     function onIdAssign(id) {
-      console.log(id);
+      // console.log(id);
       fastIdHolder = Number(id);
       setPlayerId(fastIdHolder);
     }
 
     function onGameStart() {
-      console.log("Game starting")
+      // console.log("Game starting")
       setWinner(false);
       setLoser(false);
       setButtonHistory([])
@@ -70,7 +70,6 @@ function App() {
     if (!loading) {
       setLoading(true);
       if (myTurn) {
-        console.log("click")
         let color = e.target.id
         if (buttonHistory.length === historyIndex) {
           setHistoryIndex(0);
